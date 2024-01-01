@@ -27,8 +27,12 @@ Route::group(['middleware' => ['guest']], function () {
 });
 
 Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
-Route::get('/laundry', [App\Http\Controllers\Trans\LaundryController::class, 'index'])->name('laundry.index');
+// Route::get('/laundry', [App\Http\Controllers\LaundryController::class, 'index'])->name('laundry.index');
 
+
+Route::group(['namespace' => 'App\Livewire\Master'], function () {
+    Route::get('/laundry', LaundryList::class)->name('laundry.index');
+});
 
 Route::group(['namespace' => 'App\Http\Controllers\Auth'], function () {
     Route::get('/logout', 'AuthController@logout')->name('auth.logout');

@@ -27,32 +27,21 @@
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss','resources/css/app.css', 'resources/js/app.js',])
+    @livewireStyles
+
 </head>
 <body id="page-top">
     <div id="app">
         <div id="wrapper">
 
         @include('layouts.sidebar')
-
-        {{-- start  --}}
-         <!-- Content Wrapper -->
          <div id="content-wrapper" class="d-flex flex-column">
-
-            <!-- Main Content -->
             <div id="content">
-
                 @include('layouts.header')
-
-                <!-- Begin Page Content -->
                 <div class="container-fluid">
                     @yield('content')
                 </div>
-                <!-- /.container-fluid -->
-
             </div>
-            <!-- End of Main Content -->
-
-            <!-- Footer -->
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
@@ -75,7 +64,9 @@
         </main> --}}
         {{-- @include('layouts.footer') --}}
     </div>
+             @livewireScripts
         <!-- Bootstrap core JavaScript-->
         @yield('extends-scripts')
+
 </body>
 </html>
